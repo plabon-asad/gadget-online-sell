@@ -1,0 +1,24 @@
+/*!
+Theme Name: gadget-online-sell
+Theme URI: https://github.com/plabon-asad/gadget-online-sell
+Author: Plabon Asad
+Author URI: https://www.gadget-online-sell.com
+Description: Online gadget shopping shop.
+Version: 1.0.0
+License: GNU General Public License v2 or later
+Text Domain: gadget-online-sell
+*/
+
+/* Text meant only for screen readers. */
+.screen-reader-text {
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    overflow: hidden;
+    position: absolute !important;
+    word-wrap: normal !important;
+}
