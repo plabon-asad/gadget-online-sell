@@ -7,24 +7,53 @@
 /*
  * Let WordPress manage the document title.
  */
-add_theme_support( 'title-tag' );
 
-/*
- * Enable support for Post Thumbnails on posts and pages.
- */
-add_theme_support( 'post-thumbnails' );
+function gos_theme_setup() {
+    add_theme_support( 'title-tag' );
 
-/*
- * Switch default core markup for search form, comment form, and comments
- * to output valid HTML5.
- */
-add_theme_support( 'html5', array(
-    'search-form',
-    'comment-form',
-    'comment-list',
-    'gallery',
-    'caption',
-) );
+    //Enable custom logo to upload a images
+    add_theme_support( 'custom-logo', array(
+        'width' => '120',
+        'height' => '20',
+        'flex-weight' => true,
+        'flex-height' => true
+    ) );
+
+    /*
+     * Enable support for Post Thumbnails on posts and pages.
+     */
+    add_theme_support( 'post-thumbnails' );
+
+    /*
+     * Switch default core markup for search form, comment form, and comments
+     * to output valid HTML5.
+     */
+    add_theme_support( 'html5', array(
+        'search-form',
+        'comment-form',
+        'comment-list',
+        'gallery',
+        'caption',
+    ) );
+
+    /* Enable custom logo */
+    add_theme_support( 'custom-logo', array(
+        'height'      => 100,
+        'width'       => 400,
+        'flex-width' => true,
+    ) );
+
+}
+add_action( 'after_setup_theme', 'gos_theme_setup' );
+
+//Show custom logo
+function show_custom_logo() {
+    if (has_custom_logo()){
+        if ( function_exists( 'the_custom_logo' ) ) {
+            the_custom_logo();
+        }
+    }
+}
 
 /**
  * Include primary navigation menu

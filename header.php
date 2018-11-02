@@ -68,8 +68,9 @@
 
         <div class="wrap_header">
             <!-- Logo -->
-            <a href="index.html" class="logo">
-                <img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/icons/logo.png" alt="IMG-LOGO">
+            <a href="<?php echo esc_url(home_url()); ?>" class="logo">
+                <?php show_custom_logo(); ?>
+                <img src='<?php echo esc_url(get_template_directory_uri()); ?>/images/icons/logo.png' alt='IMG-LOGO'>
             </a>
 
             <!-- Menu -->
