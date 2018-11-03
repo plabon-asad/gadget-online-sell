@@ -70,7 +70,7 @@
             <!-- Logo -->
             <a href="<?php echo esc_url(home_url()); ?>" class="logo">
                 <?php show_custom_logo(); ?>
-                <img src='<?php echo esc_url(get_template_directory_uri()); ?>/images/icons/logo.png' alt='IMG-LOGO'>
+<!--                <img src='--><?php //echo esc_url(get_template_directory_uri()); ?><!--/images/icons/logo.png' alt='IMG-LOGO'>-->
             </a>
 
             <!-- Menu -->

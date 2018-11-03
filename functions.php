@@ -12,12 +12,7 @@ function gos_theme_setup() {
     add_theme_support( 'title-tag' );
 
     //Enable custom logo to upload a images
-    add_theme_support( 'custom-logo', array(
-        'width' => '120',
-        'height' => '20',
-        'flex-weight' => true,
-        'flex-height' => true
-    ) );
+    add_theme_support( 'custom-logo');
 
     /*
      * Enable support for Post Thumbnails on posts and pages.
@@ -48,10 +43,8 @@ add_action( 'after_setup_theme', 'gos_theme_setup' );
 
 //Show custom logo
 function show_custom_logo() {
-    if (has_custom_logo()){
-        if ( function_exists( 'the_custom_logo' ) ) {
-            the_custom_logo();
-        }
+    if ( has_custom_logo() ){
+        echo wp_get_attachment_image( get_theme_mod( 'custom_logo' ), 'full' );
     }
 }
 
