@@ -9,33 +9,22 @@
  */
 
 function gos_theme_setup() {
+
     add_theme_support( 'title-tag' );
 
     //Enable custom logo to upload a images
     add_theme_support( 'custom-logo');
 
-    /*
-     * Enable support for Post Thumbnails on posts and pages.
-     */
+    //Enable support for Post Thumbnails Image on posts and pages.
     add_theme_support( 'post-thumbnails' );
 
-    /*
-     * Switch default core markup for search form, comment form, and comments
-     * to output valid HTML5.
-     */
+    // Switch default core markup for search form, comment form, and comments to output valid HTML5.
     add_theme_support( 'html5', array(
         'search-form',
         'comment-form',
         'comment-list',
         'gallery',
         'caption',
-    ) );
-
-    /* Enable custom logo */
-    add_theme_support( 'custom-logo', array(
-        'height'      => 100,
-        'width'       => 400,
-        'flex-width' => true,
     ) );
 
 }
@@ -85,11 +74,11 @@ function gos_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'gos_scripts' );
 
-function gos_create_post_custom_post() {
+function gos_create_custom_post() {
     register_post_type('custom_post',
         array(
             'labels' => array(
-                'name' => __('Custom Post', 'untheme'),
+                'name' => __('Custom Post', 'gos'),
             ),
             'public'       => true,
             'hierarchical' => true,
@@ -106,4 +95,17 @@ function gos_create_post_custom_post() {
             )
         ));
 }
-add_action('init', 'gos_create_post_custom_post'); // Add our work type
+add_action('init', 'gos_create_custom_post'); // Add our work type
+
+/**
+ * Customize pagination link and add class
+ */
+add_filter('next_posts_link_attributes', 'custom_prev_posts_link');
+add_filter('previous_posts_link_attributes', 'custom_next_posts_link');
+
+function custom_prev_posts_link() {
+    return 'class="prev-post item-pagination flex-c-m trans-0-4 active-pagination"';
+}
+function custom_next_posts_link() {
+    return 'class="next-post item-pagination flex-c-m trans-0-4 active-pagination"';
+}

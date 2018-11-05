@@ -14,14 +14,16 @@
 				<div class="col-md-8 col-lg-9 p-b-75">
 					<div class="p-r-50 p-r-0-lg">
                         <?php
+                        $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
                         $args = array(
                                 'category' => 'blog_post',
-                            'posts_per_page' => '1',
-                            'order' => 'ASC'
+                                'posts_per_page' => '2',
+                                'paged' => $paged,
+                                'order' => 'ASC'
 
                         );
-                        $blog_post = new WP_Query( $args );
-                        if ($blog_post->have_posts()) : ; while ($blog_post->have_posts()) : $blog_post->the_post();
+                        $blog_post = query_posts( $args );
+                        if (have_posts()) : ; while (have_posts()) : the_post();
                         ?>
 						<!-- item blog -->
 						<div class="item-blog p-b-80">
@@ -70,16 +72,12 @@
                         <?php endwhile; ?>
                         <!-- Pagination -->
                         <div class="pagination flex-m flex-w p-r-50">
-                                <span class="item-pagination flex-c-m trans-0-4 active-pagination">
-                                    <?php previous_post_link(); ?>
-                                </span>
-                                <span class="item-pagination flex-c-m trans-0-4 active-pagination">
-                                    <?php next_post_link(); ?>
-                                </span>
+                            <?php previous_posts_link('Prev'); ?>
+                            <?php echo next_posts_link('Next'); ?>
 <!--                            <a href="#" class="item-pagination flex-c-m trans-0-4 active-pagination">1</a>-->
 <!--                            <a href="#" class="item-pagination flex-c-m trans-0-4">2</a>-->
                         </div>
-                        <?php endif; wp_reset_postdata(); ?>
+                        <?php endif; //wp_reset_postdata(); ?>
 					</div>
 
 
