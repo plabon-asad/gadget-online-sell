@@ -1,4 +1,4 @@
-
+<?php /* Template Name: Blog */ ?>
     <?php get_header(); ?>
 	<!-- Title Page -->
 	<section class="bg-title-page p-t-40 p-b-50 flex-col-c-m" style="background-image: url(<?php echo esc_url(get_template_directory_uri()) ?>/images/heading-pages-05.jpg);">
@@ -77,7 +77,11 @@
 <!--                            <a href="#" class="item-pagination flex-c-m trans-0-4 active-pagination">1</a>-->
 <!--                            <a href="#" class="item-pagination flex-c-m trans-0-4">2</a>-->
                         </div>
-                        <?php endif; //wp_reset_postdata(); ?>
+                        <?php else: ?>
+                        <div class="alert alert-warning">
+                            <h1 class="text-center">There is no blog post to display</h1>
+                        </div>
+                        <?php endif; wp_reset_postdata(); ?>
 					</div>
 
 
