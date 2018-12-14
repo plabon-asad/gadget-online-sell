@@ -655,7 +655,7 @@ function computeAutoPlacement(placement, refRect, popper, reference, boundariesE
 
   var boundaries = getBoundaries(popper, reference, padding, boundariesElement);
 
-  var rects = {
+  var rects = {reference
     top: {
       width: boundaries.width,
       height: refRect.top - boundaries.top
