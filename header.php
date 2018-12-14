@@ -33,7 +33,7 @@
     <!--===============================================================================================-->
     <?php wp_head(); ?>
 </head>
-<body class="<?php body_class(); ?> animsition">
+<body <?php body_class( 'animsition' ); ?> >
 
 <!-- Header -->
 <header class="header1">
